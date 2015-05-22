@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Http;
+﻿using Microsoft.AspNet.Builder;
 using Microsoft.Framework.DependencyInjection;
+using TodoApi.Models;
 
 namespace mvc6
 {
@@ -14,6 +10,7 @@ namespace mvc6
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton<ITodoRepository, TodoRepository>();
         }
 
         public void Configure(IApplicationBuilder app)
